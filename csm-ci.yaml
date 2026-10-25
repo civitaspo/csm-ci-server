@@ -100,6 +100,15 @@ repositories:
       - release
     release:
       build_type: none
+  - name: civitaspo/dbt-snowflake-rap-enforcement
+    ops:
+      - approve
+      - merge
+      - policy-check
+      - securefix
+      - release
+    release:
+      build_type: none
 repo_settings:
   settings:
     delete_branch_on_merge: true
