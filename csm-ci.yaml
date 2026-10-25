@@ -109,6 +109,15 @@ repositories:
       - release
     release:
       build_type: none
+  - name: civitaspo/herdr-infobox
+    ops:
+      - approve
+      - merge
+      - policy-check
+      - securefix
+      - release
+    release:
+      build_type: none
 repo_settings:
   settings:
     delete_branch_on_merge: true
@@ -191,3 +200,4 @@ securefix:
         package.json: version-only
         pyproject.toml: version-only
         dbt_project.yml: version-only
+        herdr-plugin.toml: version-only

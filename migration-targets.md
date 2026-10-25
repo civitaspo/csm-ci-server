@@ -9,10 +9,10 @@ This list records the planned scope and current enrollment. The server and actio
 | civitaspo/dotfiles | No release pipeline in the old policy | Protected merge verified in PR #266; no release pipeline required |
 | civitaspo/dbt-authorized-models | GitHub release; verify source-only requirements | Protected merge PR #172 and immutable v0.4.1 release verified; see verification.md |
 | civitaspo/dbt-snowflake-iceberg-sync | GitHub release; verify source-only requirements | Protected merge PR #136 and immutable v0.6.4 release verified; see verification.md |
-| civitaspo/dbt-snowflake-rap-enforcement | GitHub release; verify source-only requirements | Caller bootstrap PR #172 merged; protection and release verification pending |
+| civitaspo/dbt-snowflake-rap-enforcement | Source-only immutable GitHub release | Complete: protected release PR #173 and verified v0.5.5 publication |
 | civitaspo/terraform-provider-sigma | Terraform Registry manifest, checksums and GPG signatures | Blocked on a compatible publishing design; do not replace with ordinary GoReleaser publishing |
 | civitaspo/herdr-linear-agent | Rust binaries; preserve the existing asset and target contract | Pending caller and release migration |
 | civitaspo/hook-relay-client-rs | Rust binaries; preserve the existing asset and target contract | Pending caller and release migration |
-| civitaspo/herdr-infobox | Rust binaries; preserve the existing asset and target contract | Pending caller and release migration |
+| civitaspo/herdr-infobox | Source-only GitHub release; local binary packaging remains deferred | Caller bootstrap PR #93 merged; protection and release verification pending |
 
 Do not enroll a client merely because its App installation or credentials are ready. First verify its new callers, required checks, legacy ruleset transition, and release requirements. Keep the old service in place until the last client has migrated and been verified. Do not grant the retired server bot trust in the new configuration.
