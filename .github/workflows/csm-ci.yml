@@ -1,0 +1,18 @@
+name: csm-ci
+# Label requests must not cancel each other.
+# jactionlint ignore=concurrency-limits
+on:
+  label:
+    types: [created]
+permissions: {}
+jobs:
+  server:
+    # Environment credentials are consumed inside the trusted reusable workflow.
+    # jactionlint ignore=secrets-inherit
+    uses: civitaspo/csm-ci-actions/.github/workflows/server.yml@2b7b009b0a060bb5523493abe833854b53f94f85
+    secrets: inherit
+    permissions:
+      contents: read
+      issues: write
+      id-token: write
+      attestations: write
