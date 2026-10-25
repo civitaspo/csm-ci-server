@@ -1,13 +1,13 @@
 # Production migration targets
 
-This list records the planned scope and current enrollment. The server and actions client passed protected merge verification. The actions client also published and verified its first JS-action release. The dotfiles client is selected for caller bootstrap. The list comes from securefix-server's policy.json, excluding the retired securefix-server family and adding csm-ci-actions and csm-ci-server.
+This list records the planned scope and current enrollment. The server and actions client passed protected merge verification. The actions client also published and verified its first JS-action release. The dotfiles client also passed its protected merge. The dbt-authorized-models client is selected for its protection and release verification. The list comes from securefix-server's policy.json, excluding the retired securefix-server family and adding csm-ci-actions and csm-ci-server.
 
 | Repository | Release requirement | Enrollment |
 | --- | --- | --- |
 | civitaspo/csm-ci-server | No release pipeline required | Protected merge verified in PR #5 |
 | civitaspo/csm-ci-actions | JavaScript action; verify committed dist | Protected merge and immutable v0.1.0 release verified; see verification.md |
-| civitaspo/dotfiles | No release pipeline in the old policy | Selected for caller bootstrap; legacy ruleset transition and protected merge pending |
-| civitaspo/dbt-authorized-models | GitHub release; verify source-only requirements | Pending caller and release migration |
+| civitaspo/dotfiles | No release pipeline in the old policy | Protected merge verified in PR #266; no release pipeline required |
+| civitaspo/dbt-authorized-models | GitHub release; verify source-only requirements | Caller bootstrap PR #166; protection and immutable release verification pending |
 | civitaspo/dbt-snowflake-iceberg-sync | GitHub release; verify source-only requirements | Pending caller and release migration |
 | civitaspo/dbt-snowflake-rap-enforcement | GitHub release; verify source-only requirements | Pending caller and release migration |
 | civitaspo/terraform-provider-sigma | Terraform Registry manifest, checksums and GPG signatures | Blocked on a compatible publishing design; do not replace with ordinary GoReleaser publishing |

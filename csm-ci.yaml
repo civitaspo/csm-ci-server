@@ -82,6 +82,15 @@ repositories:
       - approve
       - merge
       - policy-check
+  - name: civitaspo/dbt-authorized-models
+    ops:
+      - approve
+      - merge
+      - policy-check
+      - securefix
+      - release
+    release:
+      build_type: none
 repo_settings:
   settings:
     delete_branch_on_merge: true
@@ -150,7 +159,7 @@ repo_settings:
           uses: civitaspo/csm-ci-actions/.github/workflows/client-merge.yml@85d8fc79ef0ca89ec4cc073d142dab75ebe09a66
           secrets: inherit
 securefix:
-  allow_workflow_changes: false
+  allow_workflow_changes: true
   routes:
     - name: release-pr
       from: default
@@ -163,3 +172,4 @@ securefix:
         Cargo.lock: version-only
         package.json: version-only
         pyproject.toml: version-only
+        dbt_project.yml: version-only
