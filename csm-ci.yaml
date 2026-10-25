@@ -118,6 +118,21 @@ repositories:
       - release
     release:
       build_type: none
+  - name: civitaspo/herdr-linear-agent
+    ops:
+      - approve
+      - merge
+      - policy-check
+      - securefix
+      - release
+    release:
+      build_type: cargo-raw
+      binary: herdr-linear-agent
+      targets:
+        - aarch64-apple-darwin
+        - x86_64-apple-darwin
+        - x86_64-unknown-linux-musl
+        - aarch64-unknown-linux-musl
 repo_settings:
   settings:
     delete_branch_on_merge: true
@@ -153,7 +168,7 @@ repo_settings:
         request:
           # The called workflow mints the narrowly scoped Client App token.
           # jactionlint ignore=secrets-inherit
-          uses: civitaspo/csm-ci-actions/.github/workflows/client-approve.yml@85d8fc79ef0ca89ec4cc073d142dab75ebe09a66
+          uses: civitaspo/csm-ci-actions/.github/workflows/client-approve.yml@2b751e0f2e16bb8e7bdd57994a8d3e13cdb1879e
           secrets: inherit
     .github/workflows/csm-ci-policy-check.yml: |
       name: csm-ci-policy-check
@@ -168,7 +183,7 @@ repo_settings:
         request:
           # The called workflow mints the narrowly scoped Client App token.
           # jactionlint ignore=secrets-inherit
-          uses: civitaspo/csm-ci-actions/.github/workflows/client-policy-check.yml@85d8fc79ef0ca89ec4cc073d142dab75ebe09a66
+          uses: civitaspo/csm-ci-actions/.github/workflows/client-policy-check.yml@2b751e0f2e16bb8e7bdd57994a8d3e13cdb1879e
           secrets: inherit
     .github/workflows/csm-ci-merge.yml: |
       name: csm-ci-merge
@@ -183,7 +198,7 @@ repo_settings:
         request:
           # The called workflow mints the narrowly scoped Client App token.
           # jactionlint ignore=secrets-inherit
-          uses: civitaspo/csm-ci-actions/.github/workflows/client-merge.yml@85d8fc79ef0ca89ec4cc073d142dab75ebe09a66
+          uses: civitaspo/csm-ci-actions/.github/workflows/client-merge.yml@2b751e0f2e16bb8e7bdd57994a8d3e13cdb1879e
           secrets: inherit
 securefix:
   allow_workflow_changes: true
