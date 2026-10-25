@@ -1,0 +1,70 @@
+owners:
+  - civitaspo
+server_repository: civitaspo/csm-ci-server
+apps:
+  client_bot_id: 347822659
+  server_app_id: 5467106
+  server_bot_id: 347821498
+approver:
+  id: 347823687
+  login: csm-ci-approver[bot]
+trust:
+  committers:
+    - id: 4525500
+      login: civitaspo
+    - id: 199161495
+      login: cursoragent
+    - id: 29139614
+      login: renovate[bot]
+    - id: 49699333
+      login: dependabot[bot]
+  approvers:
+    - id: 4525500
+      login: civitaspo
+  mergers:
+    - id: 4525500
+      login: civitaspo
+  bot_mergers: []
+merge:
+  required_checks:
+    - name: status-check
+      app_id: 15368
+  deadline_minutes: 60
+policies:
+  - type: signed-commits
+  - type: trusted-committers
+  - type: sensitive-paths
+    paths:
+      - .github/workflows/**
+      - .github/actions/**
+      - "**/Cargo.toml"
+      - "**/Cargo.lock"
+      - "**/go.mod"
+      - "**/go.sum"
+      - "**/package.json"
+      - "**/package-lock.json"
+      - "**/pnpm-lock.yaml"
+      - "**/yarn.lock"
+      - "**/pyproject.toml"
+      - "**/uv.lock"
+      - "**/requirements*.txt"
+      - "**/mise.toml"
+      - "**/.mise.toml"
+      - "**/mise.lock"
+      - "**/.mise.lock"
+      - "**/Makefile"
+      - "**/Dockerfile*"
+      - .goreleaser.*
+      - scripts/**
+      - "**/build.rs"
+      - .cargo/**
+      - "**/.cargo/**"
+    exempt:
+      - id: 29139614
+        login: renovate[bot]
+repositories:
+  - name: civitaspo/csm-ci-server
+    ops:
+      - approve
+      - merge
+      - policy-check

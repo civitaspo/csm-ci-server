@@ -1,0 +1,24 @@
+name: csm-ci-check
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions: {}
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  validate:
+    uses: civitaspo/csm-ci-actions/.github/workflows/server-check.yml@2b7b009b0a060bb5523493abe833854b53f94f85
+    permissions:
+      contents: read
+  status-check:
+    if: always()
+    needs: [validate]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Require configuration and workflow validation
+        env:
+          VALIDATION_RESULT: ${{ needs.validate.result }}
+        run: test "$VALIDATION_RESULT" = success
