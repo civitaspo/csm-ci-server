@@ -1,6 +1,6 @@
 # csm-ci-server
 
-GitHub Actions server for validated CI requests from civitaspo repositories, using [csm-ci-actions](https://github.com/civitaspo/csm-ci-actions) pinned to `2b7b009b0a060bb5523493abe833854b53f94f85`.
+GitHub Actions server for validated CI requests from civitaspo repositories, using [csm-ci-actions](https://github.com/civitaspo/csm-ci-actions) pinned to `85d8fc79ef0ca89ec4cc073d142dab75ebe09a66`.
 
 ## Enrollment and protection
 
@@ -22,4 +22,4 @@ Every client, including this server, needs repository variables `CSM_CI_CLIENT_A
 
 Use pull requests for every configuration or workflow change. The server treats every path here as sensitive. A trusted operator uses `/approve`, then `/merge` after policy and CI checks pass. The trusted identities were ported from the previous policy by immutable user ID, excluding the retired server bot. The Renovate sensitive-path exemption does not apply to this server or csm-ci-actions.
 
-Enroll clients individually after reviewing their caller and required-check migration. Follow the [setup guide](https://github.com/civitaspo/csm-ci-actions/blob/2b7b009b0a060bb5523493abe833854b53f94f85/docs/setup.md) and [repository settings guide](https://github.com/civitaspo/csm-ci-actions/blob/2b7b009b0a060bb5523493abe833854b53f94f85/docs/repo-settings.md).
+Enroll clients individually after reviewing their caller and required-check migration. Follow the [setup guide](https://github.com/civitaspo/csm-ci-actions/blob/85d8fc79ef0ca89ec4cc073d142dab75ebe09a66/docs/setup.md) and [repository settings guide](https://github.com/civitaspo/csm-ci-actions/blob/85d8fc79ef0ca89ec4cc073d142dab75ebe09a66/docs/repo-settings.md).
