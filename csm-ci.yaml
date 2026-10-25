@@ -68,6 +68,15 @@ repositories:
       - approve
       - merge
       - policy-check
+  - name: civitaspo/csm-ci-actions
+    ops:
+      - approve
+      - merge
+      - policy-check
+      - securefix
+      - release
+    release:
+      build_type: js-action
 repo_settings:
   settings:
     delete_branch_on_merge: true
@@ -88,3 +97,64 @@ repo_settings:
       ## Blast Radius
 
       ## Verification
+    .github/workflows/csm-ci-approve.yml: |
+      name: csm-ci-approve
+      # Each event submits a separate request; callers do not cancel earlier requests.
+      # These workflows never check out PR code.
+      # jactionlint ignore=concurrency-limits,dangerous-triggers
+      on:
+        pull_request_target:
+          types: [opened, synchronize, reopened, ready_for_review]
+        issue_comment:
+          types: [created]
+      permissions: {}
+      jobs:
+        request:
+          # The called workflow mints the narrowly scoped Client App token.
+          # jactionlint ignore=secrets-inherit
+          uses: civitaspo/csm-ci-actions/.github/workflows/client-approve.yml@85d8fc79ef0ca89ec4cc073d142dab75ebe09a66
+          secrets: inherit
+    .github/workflows/csm-ci-policy-check.yml: |
+      name: csm-ci-policy-check
+      # Each event submits a separate request; callers do not cancel earlier requests.
+      # These workflows never check out PR code.
+      # jactionlint ignore=concurrency-limits,dangerous-triggers
+      on:
+        pull_request_target:
+          types: [opened, synchronize, reopened, ready_for_review, edited]
+      permissions: {}
+      jobs:
+        request:
+          # The called workflow mints the narrowly scoped Client App token.
+          # jactionlint ignore=secrets-inherit
+          uses: civitaspo/csm-ci-actions/.github/workflows/client-policy-check.yml@85d8fc79ef0ca89ec4cc073d142dab75ebe09a66
+          secrets: inherit
+    .github/workflows/csm-ci-merge.yml: |
+      name: csm-ci-merge
+      # Each event submits a separate request; callers do not cancel earlier requests.
+      # These workflows never check out PR code.
+      # jactionlint ignore=concurrency-limits,dangerous-triggers
+      on:
+        issue_comment:
+          types: [created]
+      permissions: {}
+      jobs:
+        request:
+          # The called workflow mints the narrowly scoped Client App token.
+          # jactionlint ignore=secrets-inherit
+          uses: civitaspo/csm-ci-actions/.github/workflows/client-merge.yml@85d8fc79ef0ca89ec4cc073d142dab75ebe09a66
+          secrets: inherit
+securefix:
+  allow_workflow_changes: false
+  routes:
+    - name: release-pr
+      from: default
+      to: release/next
+      workflow: .github/workflows/csm-ci-release-pr.yml
+      paths:
+        CHANGELOG.md: any
+        .release-version: semver
+        Cargo.toml: version-only
+        Cargo.lock: version-only
+        package.json: version-only
+        pyproject.toml: version-only

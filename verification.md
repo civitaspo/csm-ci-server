@@ -26,3 +26,15 @@ The [managed-files-only dispatch](https://github.com/civitaspo/csm-ci-server/act
 The [reconcile dispatch](https://github.com/civitaspo/csm-ci-server/actions/runs/40201817007) passed. API inspection confirmed four active rulesets: integrity `25823865`, review-and-checks `25823866`, controlled-merges `25823867`, and release-tags `25823869`. Integrity and review-and-checks have no bypass. The required approval count is one with stale review dismissal. Required checks are `status-check` from App `15368` and `csm-ci/policy` from App `5467106`. Controlled merges allow only Server App `5467106` with a pull-request bypass; release tags allow only that App. Squash-only merging, branch cleanup and immutable releases are enabled.
 
 The next intended PR updates all actions pins to `85d8fc79ef0ca89ec4cc073d142dab75ebe09a66`. That revision passed [main CI](https://github.com/civitaspo/csm-ci-actions/actions/runs/40201184382) and [post-merge smoke](https://github.com/civitaspo/csm-ci-actions/actions/runs/40201237956). Verify this PR through `/approve` and `/merge` under active protection before enrolling the actions repository.
+
+## 2026-10-25: protected server merge
+
+[PR #5](https://github.com/civitaspo/csm-ci-server/pull/5) updated the reviewed workflow pins at signed head `5908bb8c31e4fdf461ddfa08b2f225d400a6ff2e`. Before approval, GitHub reported `REVIEW_REQUIRED` and `BLOCKED`; [CI](https://github.com/civitaspo/csm-ci-server/actions/runs/40202140663) passed and policy failed as expected for sensitive server paths.
+
+The owner requested [`/approve`](https://github.com/civitaspo/csm-ci-server/pull/5#issuecomment-6398857991). Review `5643661950` was `APPROVED` by App bot `347823687` on that exact head, with its command marker. GitHub's review decision became `APPROVED`, and Server App `5467106`'s policy check passed. Integrity and review/check rulesets still had no bypass.
+
+The owner requested [`/merge`](https://github.com/civitaspo/csm-ci-server/pull/5#issuecomment-6398868380). The [server merge run](https://github.com/civitaspo/csm-ci-server/actions/runs/40202334965) passed and merged the PR as `b54398af51fbfea8aec3dd8849200b7fdbc8a4a9`, with `merged_by` equal to Server bot `347821498`. [Main CI](https://github.com/civitaspo/csm-ci-server/actions/runs/40202378983) passed. This verifies that the Approver App review counts under the managed required-approval ruleset and the Server App can merge through controlled protection.
+
+## Actions client bootstrap
+
+The configuration now selects `civitaspo/csm-ci-actions` and enables its existing JS-action release type and bounded release-PR route. Three common approval, policy and merge caller files are managed globally at the reviewed revision. Bootstrap them with `managed-files-only` and merge through the client's current process before activation. Release callers and the root package version field must be added and verified before reconciling protection; the current actions package has no version field. Do not treat enrollment alone as completed migration.

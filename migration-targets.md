@@ -1,11 +1,11 @@
 # Production migration targets
 
-This is the planned scope, not an active configuration. Only the server is enrolled initially. The list comes from securefix-server's policy.json, excluding the retired securefix-server family and adding csm-ci-actions and csm-ci-server.
+This list records the planned scope and current enrollment. The server passed protected merge verification; the actions client is selected for bootstrap but its callers and protection still require verification. The list comes from securefix-server's policy.json, excluding the retired securefix-server family and adding csm-ci-actions and csm-ci-server.
 
 | Repository | Release requirement | Enrollment |
 | --- | --- | --- |
-| civitaspo/csm-ci-server | No release pipeline required | Initial bootstrap |
-| civitaspo/csm-ci-actions | JavaScript action; verify committed dist | Pending caller migration and removal of repo-settings' actions-repository exclusion |
+| civitaspo/csm-ci-server | No release pipeline required | Protected merge verified in PR #5 |
+| civitaspo/csm-ci-actions | JavaScript action; verify committed dist | Selected for managed caller bootstrap; JS release callers and protection verification pending |
 | civitaspo/dotfiles | No release pipeline in the old policy | Pending caller migration |
 | civitaspo/dbt-authorized-models | GitHub release; verify source-only requirements | Pending caller and release migration |
 | civitaspo/dbt-snowflake-iceberg-sync | GitHub release; verify source-only requirements | Pending caller and release migration |
