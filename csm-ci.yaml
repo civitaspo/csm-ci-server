@@ -68,3 +68,23 @@ repositories:
       - approve
       - merge
       - policy-check
+repo_settings:
+  settings:
+    delete_branch_on_merge: true
+    allow_auto_merge: false
+    allow_squash_merge: true
+    allow_merge_commit: false
+    allow_rebase_merge: false
+  managed_files:
+    .github/PULL_REQUEST_TEMPLATE.md: |
+      ## Why
+
+      ## What changed
+
+      ## Scope
+
+      ## Tradeoffs
+
+      ## Blast Radius
+
+      ## Verification
