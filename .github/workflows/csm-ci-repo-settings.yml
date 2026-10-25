@@ -1,0 +1,27 @@
+name: csm-ci-repo-settings
+on:
+  schedule:
+    - cron: '23 3 * * *'
+  workflow_dispatch:
+    inputs:
+      repository:
+        description: Optional configured owner/repo target.
+        type: string
+        required: false
+      mode:
+        description: Distribute managed files before activating repository protection.
+        type: choice
+        options: [managed-files-only, reconcile]
+        default: managed-files-only
+permissions: {}
+jobs:
+  settings:
+    permissions:
+      contents: read
+    uses: civitaspo/csm-ci-actions/.github/workflows/server-repo-settings.yml@2b7b009b0a060bb5523493abe833854b53f94f85
+    with:
+      repository: ${{ inputs.repository || '' }}
+      mode: ${{ inputs.mode || 'reconcile' }}
+    # Server environment secrets reach the reusable workflow only through inherit.
+    # jactionlint ignore=secrets-inherit
+    secrets: inherit

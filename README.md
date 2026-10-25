@@ -2,11 +2,13 @@
 
 GitHub Actions server for validated CI requests from civitaspo repositories, using [csm-ci-actions](https://github.com/civitaspo/csm-ci-actions) pinned to `2b7b009b0a060bb5523493abe833854b53f94f85`.
 
-## Bootstrap state
+## Enrollment and protection
 
 Only this server is enrolled in `csm-ci.yaml`. The label caller receives requests, the client callers request approval, policy checks and merges for this repository, and `csm-ci-check` validates configuration and workflows. Its `status-check` job is the required CI check.
 
-Repository-settings reconciliation is not enabled yet. No managed-file distribution or protection activation runs from this bootstrap. Register credentials and install the production Apps, merge this initial bootstrap PR through the owner's current process, then open a separate intended server PR and verify `/approve` and `/merge` before enabling protection.
+Repository-settings reconciliation selects only this server. The scheduled workflow repairs settings and rulesets, preserves an emergency stop on `controlled-merges`, and opens managed-file PRs. Manual dispatch defaults to `managed-files-only`; select `reconcile` only after verifying the default-branch callers and required checks.
+
+Production App approval and merge were verified in [Renovate PR #2](https://github.com/civitaspo/csm-ci-server/pull/2). Review the [verification record](verification.md) before activating protection. To bootstrap the managed PR template, dispatch `csm-ci-repo-settings` with `repository: civitaspo/csm-ci-server` and `mode: managed-files-only`, review and merge the generated PR, then dispatch `reconcile`. Confirm all four managed rulesets and run a separate intended PR through `/approve` and `/merge` under protection before enrolling a client.
 
 ## App installations and credentials
 
