@@ -133,6 +133,21 @@ repositories:
         - x86_64-apple-darwin
         - x86_64-unknown-linux-musl
         - aarch64-unknown-linux-musl
+  - name: civitaspo/hook-relay-client-rs
+    ops:
+      - approve
+      - merge
+      - policy-check
+      - securefix
+      - release
+    release:
+      build_type: cargo-raw
+      binary: hook-relay-client
+      targets:
+        - aarch64-apple-darwin
+        - x86_64-apple-darwin
+        - x86_64-unknown-linux-musl
+        - aarch64-unknown-linux-musl
 repo_settings:
   settings:
     delete_branch_on_merge: true
