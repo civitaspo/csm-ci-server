@@ -38,3 +38,23 @@ The owner requested [`/merge`](https://github.com/civitaspo/csm-ci-server/pull/5
 ## Actions client bootstrap
 
 The configuration now selects `civitaspo/csm-ci-actions` and enables its existing JS-action release type and bounded release-PR route. Three common approval, policy and merge caller files are managed globally at the reviewed revision. Bootstrap them with `managed-files-only` and merge through the client's current process before activation. Release callers and the root package version field must be added and verified before reconciling protection; the current actions package has no version field. Do not treat enrollment alone as completed migration.
+
+## 2026-10-25: actions client migration and first release
+
+[Caller PR #37](https://github.com/civitaspo/csm-ci-actions/pull/37) passed CI and received an exact-head Approver App review before the Server App merged it. [Main CI](https://github.com/civitaspo/csm-ci-actions/actions/runs/40206032238) and [release preparation](https://github.com/civitaspo/csm-ci-actions/actions/runs/40206032304) passed.
+
+The [actions reconcile run](https://github.com/civitaspo/csm-ci-server/actions/runs/40206198160) activated four rulesets: integrity `25825270`, review-and-checks `25825271`, controlled-merges `25825272`, and release-tags `25825273`. Integrity and review-and-checks have no bypass; required checks bind `status-check` to App `15368` and `csm-ci/policy` to App `5467106`. The only controlled-merge and release-tag bypass is Server App `5467106`. Squash-only merging, branch cleanup and immutable releases are enabled.
+
+Under those protections, [release PR #38](https://github.com/civitaspo/csm-ci-actions/pull/38) changed from `REVIEW_REQUIRED` to `APPROVED` after review `5643840344` on exact head `2ece518e58df8ff7be843363e7fdccd135688eb6`. Policy and CI passed. The Server App merged it as `bd2f3d06cf2f411af88eda876962585aadda0d2e`; [main CI](https://github.com/civitaspo/csm-ci-actions/actions/runs/40206695363) passed.
+
+The [production release pipeline](https://github.com/civitaspo/csm-ci-server/actions/runs/40206708445) passed intake, planning, JS-action build, publication and cleanup. The builder installed frozen dependencies, rebuilt the action and verified committed `dist/`. API inspection confirmed that [v0.1.0](https://github.com/civitaspo/csm-ci-actions/releases/tag/v0.1.0) is published, immutable and authored by the Server App. Its annotated tag points to the merge SHA. Its exact asset set is `SHA256SUMS`, matching the JS-action contract; its SHA256 is `01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b`.
+
+Local `gh attestation verify` succeeded with the reusable signer workflow `civitaspo/csm-ci-actions/.github/workflows/server.yml`, the release predicate type and self-hosted runners denied. The verified statement matched the asset digest, client `civitaspo/csm-ci-actions`, merge SHA and tag `v0.1.0`. An earlier attempt incorrectly selected the calling server repository as signer and failed; correcting the expected reusable signer resolved it.
+
+The release-commit push prepared duplicate PR #39 before tag publication. Its only change was one changelog line for the same version. After verifying publication, the operator closed it and deleted only its unchanged Server App branch. No second release was published.
+
+Caller-only migrations reuse completed Phase 6 implementation verification. Broader suites are required only for implementation changes, failures or specific unresolved concerns; each target still requires actual production approval, protected merge and its own release contract verification.
+
+## Dotfiles migration gates
+
+Only dotfiles is newly selected. Its initial snapshot has legacy `controlled-merges` (old Server App only), `review-and-checks` (old policy context and bypass), and `default-branch` rulesets. Bootstrap the common callers without changing those protections, merge via the existing service, then reconcile the new rulesets. Verify the new required checks and App approval with a protected PR that removes the retired callers. Dotfiles has no release pipeline in the old policy. Other targets remain pending.
