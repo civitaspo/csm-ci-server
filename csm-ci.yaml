@@ -77,6 +77,11 @@ repositories:
       - release
     release:
       build_type: js-action
+  - name: civitaspo/dotfiles
+    ops:
+      - approve
+      - merge
+      - policy-check
 repo_settings:
   settings:
     delete_branch_on_merge: true
