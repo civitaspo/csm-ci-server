@@ -1,6 +1,6 @@
 # csm-ci-server
 
-GitHub Actions server for validated CI requests from civitaspo repositories, using [csm-ci-actions](https://github.com/civitaspo/csm-ci-actions) pinned to `82917b4c3a28e5ff4023991ed355b40081d650fb`.
+GitHub Actions server for validated CI requests from civitaspo repositories. The label-processing runtime uses [csm-ci-actions](https://github.com/civitaspo/csm-ci-actions) pinned to `f6e64ac04d9b4212d43fe6ff17e2892d9a2e221c`.
 
 ## Enrollment and protection
 
@@ -8,7 +8,7 @@ The configured repositories and enabled operations are listed in `csm-ci.yaml`; 
 
 Repository-settings reconciliation selects configured, installed clients and then this server. Scheduled runs repair settings and rulesets, preserve an emergency stop on `controlled-merges`, and open managed-file PRs. Manual dispatch defaults to `managed-files-only`. For a new client, merge and verify its callers first, then dispatch `reconcile` for that repository and verify the protections before retiring saved legacy service rulesets.
 
-The server passed its protected merge in PR #5. Read [verification.md](verification.md) for production approvals, merges and release evidence. Client publication requires the bounded `release-pr` route and its declared build type. The trusted server workflows use the runtime revision above. Managed approve and policy-check callers retain reviewed revision `2b751e0f2e16bb8e7bdd57994a8d3e13cdb1879e`. Managed merge callers use `5e26d290f13f8db3d067aabc4d14030f95c40b8a`, which forwards native Bot comments on their own PRs. Both revisions include defining-repository locks for clients that require action lockfiles.
+The server passed its protected merge in PR #5. Read [verification.md](verification.md) for production approvals, merges and release evidence. Client publication requires the bounded `release-pr` route and its declared build type. The configuration-check and repository-settings workflows retain reviewed revision `82917b4c3a28e5ff4023991ed355b40081d650fb`. Managed approve and policy-check callers retain reviewed revision `2b751e0f2e16bb8e7bdd57994a8d3e13cdb1879e`. Managed merge callers use `5e26d290f13f8db3d067aabc4d14030f95c40b8a`, which forwards native Bot comments on their own PRs. Both revisions include defining-repository locks for clients that require action lockfiles.
 
 ## App installations and credentials
 
