@@ -24,7 +24,9 @@ trust:
   mergers:
     - id: 4525500
       login: civitaspo
-  bot_mergers: []
+  bot_mergers:
+    - id: 29139614
+      login: renovate[bot]
 merge:
   required_checks:
     - name: status-check
@@ -223,7 +225,7 @@ repo_settings:
         request:
           # The called workflow mints the narrowly scoped Client App token.
           # jactionlint ignore=secrets-inherit
-          uses: civitaspo/csm-ci-actions/.github/workflows/client-merge.yml@2b751e0f2e16bb8e7bdd57994a8d3e13cdb1879e
+          uses: civitaspo/csm-ci-actions/.github/workflows/client-merge.yml@5e26d290f13f8db3d067aabc4d14030f95c40b8a
           secrets: inherit
 securefix:
   allow_workflow_changes: true
