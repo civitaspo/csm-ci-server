@@ -226,7 +226,7 @@ Immutable [v0.2.4](https://github.com/civitaspo/terraform-provider-sigma/release
 
 The actual Terraform Registry discovered version 0.2.4 and advertised the correct Darwin ARM archive, checksum and signature URLs. Terraform 1.17 installed that version in a clean project and loaded its schema with 29 resources and 34 data sources without Sigma credentials. The final snapshot confirmed six rulesets, the same unrelated protection and Actions settings, and only the reviewed installer allowlist addition. All ten migration targets have completed their protected-merge and applicable release gates.
 
-## Renovate Bot merge rollout
+## Renovate Bot merge rollout: initial state
 
 Actions [PR #63](https://github.com/civitaspo/csm-ci-actions/pull/63) implements the bounded native Bot comment prefilter specified by PR #60. The [credentialed merge suite](https://github.com/civitaspo/csm-ci-actions/actions/runs/40255902418) passed all nine scenarios without skips, including native CONTRIBUTOR Bot own-PR success and mixed-commit rejection. The production trust list adds only Renovate user ID `29139614`. Existing server checks still require Bot trust, PR and commit ownership, exact-head approval, policy and CI. Bots remain forbidden as mergers in the server and actions repositories.
 
