@@ -1,6 +1,6 @@
 # csm-ci-server
 
-GitHub Actions server for validated CI requests from civitaspo repositories. The label-processing runtime uses [csm-ci-actions](https://github.com/civitaspo/csm-ci-actions) pinned to `f6e64ac04d9b4212d43fe6ff17e2892d9a2e221c`.
+GitHub Actions server for validated CI requests from civitaspo repositories. The label-processing runtime uses [csm-ci-actions](https://github.com/civitaspo/csm-ci-actions) pinned to `cb80bbca315b446e92d8a1743d7cef19558199b4`.
 
 ## Enrollment and protection
 
