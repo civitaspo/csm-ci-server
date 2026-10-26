@@ -1,6 +1,6 @@
 # Production migration targets
 
-This list records the planned scope and current enrollment. The server and actions client passed protected merge verification. The actions client also published and verified its first JS-action release. The dotfiles client also passed its protected merge. The dbt-authorized-models and dbt-snowflake-iceberg-sync clients also passed their protected merges and immutable source-only release verification. The list comes from securefix-server's policy.json, excluding the retired securefix-server family and adding csm-ci-actions and csm-ci-server.
+All ten migration targets completed protected merge verification and their applicable publication, provenance, and installation checks. The table records each completed enrollment. The list comes from securefix-server's policy.json, excluding the retired securefix-server family and adding csm-ci-actions and csm-ci-server.
 
 | Repository | Release requirement | Enrollment |
 | --- | --- | --- |
@@ -15,4 +15,4 @@ This list records the planned scope and current enrollment. The server and actio
 | civitaspo/hook-relay-client-rs | Four raw hook-relay-client Darwin/musl binaries, checksum sidecars and provenance; fixed Cargo version | Complete: protected release PR #68, immutable v0.1.1, four native binaries and README installation verified |
 | civitaspo/herdr-infobox | Source-only GitHub release; local binary packaging remains deferred | Complete: protected release PR #95 and verified immutable source-only v0.1.1 publication |
 
-Do not enroll a client merely because its App installation or credentials are ready. First verify its new callers, required checks, legacy ruleset transition, and release requirements. Keep the old service in place until the last client has migrated and been verified. Do not grant the retired server bot trust in the new configuration.
+Every enrolled client passed caller, required-check, legacy ruleset transition and applicable release verification before the old services were archived. App installation and credential readiness alone did not satisfy enrollment. The retired server bot has no trust in the new configuration.
