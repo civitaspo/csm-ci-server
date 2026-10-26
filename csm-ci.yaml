@@ -148,6 +148,16 @@ repositories:
         - x86_64-apple-darwin
         - x86_64-unknown-linux-musl
         - aarch64-unknown-linux-musl
+  - name: civitaspo/terraform-provider-sigma
+    ops:
+      - approve
+      - merge
+      - policy-check
+      - securefix
+      - release
+    release:
+      build_type: terraform-provider
+      provider_name: sigma
 repo_settings:
   settings:
     delete_branch_on_merge: true

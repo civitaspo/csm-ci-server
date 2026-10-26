@@ -10,9 +10,9 @@ This list records the planned scope and current enrollment. The server and actio
 | civitaspo/dbt-authorized-models | GitHub release; verify source-only requirements | Protected merge PR #172 and immutable v0.4.1 release verified; see verification.md |
 | civitaspo/dbt-snowflake-iceberg-sync | GitHub release; verify source-only requirements | Protected merge PR #136 and immutable v0.6.4 release verified; see verification.md |
 | civitaspo/dbt-snowflake-rap-enforcement | Source-only immutable GitHub release | Complete: protected release PR #173 and verified v0.5.5 publication |
-| civitaspo/terraform-provider-sigma | Terraform Registry manifest, checksums and GPG signatures | Blocked on a compatible publishing design; do not replace with ordinary GoReleaser publishing |
+| civitaspo/terraform-provider-sigma | Terraform Registry manifest, checksums and GPG signatures | Caller PR #214 and full main CI verified; protection, protected production release and Registry/Terraform CLI checks remain required |
 | civitaspo/herdr-linear-agent | Four native Darwin/musl raw binaries, sidecar checksums and provenance; fixed manifest versions | Complete: protected release PR #201, immutable v0.8.2, four native binaries and actual installer verified |
-| civitaspo/hook-relay-client-rs | Four raw hook-relay-client Darwin/musl binaries, checksum sidecars and provenance; fixed Cargo version | Caller PR #67 and main CI verified; protection, protected release and README installation verification remain required |
+| civitaspo/hook-relay-client-rs | Four raw hook-relay-client Darwin/musl binaries, checksum sidecars and provenance; fixed Cargo version | Complete: protected release PR #68, immutable v0.1.1, four native binaries and README installation verified |
 | civitaspo/herdr-infobox | Source-only GitHub release; local binary packaging remains deferred | Complete: protected release PR #95 and verified immutable source-only v0.1.1 publication |
 
 Do not enroll a client merely because its App installation or credentials are ready. First verify its new callers, required checks, legacy ruleset transition, and release requirements. Keep the old service in place until the last client has migrated and been verified. Do not grant the retired server bot trust in the new configuration.
