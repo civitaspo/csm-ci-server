@@ -226,8 +226,51 @@ Immutable [v0.2.4](https://github.com/civitaspo/terraform-provider-sigma/release
 
 The actual Terraform Registry discovered version 0.2.4 and advertised the correct Darwin ARM archive, checksum and signature URLs. Terraform 1.17 installed that version in a clean project and loaded its schema with 29 resources and 34 data sources without Sigma credentials. The final snapshot confirmed six rulesets, the same unrelated protection and Actions settings, and only the reviewed installer allowlist addition. All ten migration targets have completed their protected-merge and applicable release gates.
 
-## Renovate Bot merge rollout
+## Renovate Bot merge rollout: initial state
 
 Actions [PR #63](https://github.com/civitaspo/csm-ci-actions/pull/63) implements the bounded native Bot comment prefilter specified by PR #60. The [credentialed merge suite](https://github.com/civitaspo/csm-ci-actions/actions/runs/40255902418) passed all nine scenarios without skips, including native CONTRIBUTOR Bot own-PR success and mixed-commit rejection. The production trust list adds only Renovate user ID `29139614`. Existing server checks still require Bot trust, PR and commit ownership, exact-head approval, policy and CI. Bots remain forbidden as mergers in the server and actions repositories.
 
 This change updates the managed merge template and the server's own merge caller. Approve, policy, release and trusted server workflow pins remain unchanged. Each remaining client must update and verify its merge caller sequentially. A real Renovate PR must complete the native client-to-server merge path before this rollout is considered complete. The owner also requested `/merge` comment configuration in every Renovate config. The eight ordinary clients already have it; the server and actions repository did not. This server now enables comment requests for non-major updates with platform automerge disabled, while major updates remain manual. Its fixed server-side Bot-merger prohibition remains active. No private credentials or App permissions are changed.
+
+## 2026-10-26: serial Renovate caller rollout completed
+
+All ten repositories use merge caller `5e26d290f13f8db3d067aabc4d14030f95c40b8a`. Each caller PR passed independent review and its original full PR CI before exact-head Approver review, policy, and protected Server merge. Every full main CI passed before work began on the next repository. Required local checks and fresh official action-lock verification passed without changing the lockfile contents.
+
+| Repository | Caller PR | Full PR CI | Full main CI |
+| --- | --- | --- | --- |
+| csm-ci-server | [#15](https://github.com/civitaspo/csm-ci-server/pull/15) | [Passed](https://github.com/civitaspo/csm-ci-server/actions/runs/40258417456) | [Passed](https://github.com/civitaspo/csm-ci-server/actions/runs/40258640439) |
+| csm-ci-actions | [#64](https://github.com/civitaspo/csm-ci-actions/pull/64) | [Passed](https://github.com/civitaspo/csm-ci-actions/actions/runs/40258921493) | [Passed](https://github.com/civitaspo/csm-ci-actions/actions/runs/40259130624) |
+| dotfiles | [#267](https://github.com/civitaspo/dotfiles/pull/267) | [Passed](https://github.com/civitaspo/dotfiles/actions/runs/40259488945) | [Passed](https://github.com/civitaspo/dotfiles/actions/runs/40259652230) |
+| dbt-authorized-models | [#173](https://github.com/civitaspo/dbt-authorized-models/pull/173) | [Passed](https://github.com/civitaspo/dbt-authorized-models/actions/runs/40260120559) | [Passed](https://github.com/civitaspo/dbt-authorized-models/actions/runs/40261266324) |
+| dbt-snowflake-iceberg-sync | [#137](https://github.com/civitaspo/dbt-snowflake-iceberg-sync/pull/137) | [Passed](https://github.com/civitaspo/dbt-snowflake-iceberg-sync/actions/runs/40262763348) | [Passed](https://github.com/civitaspo/dbt-snowflake-iceberg-sync/actions/runs/40262992128) |
+| dbt-snowflake-rap-enforcement | [#176](https://github.com/civitaspo/dbt-snowflake-rap-enforcement/pull/176) | [Passed](https://github.com/civitaspo/dbt-snowflake-rap-enforcement/actions/runs/40263369562) | [Passed](https://github.com/civitaspo/dbt-snowflake-rap-enforcement/actions/runs/40263662893) |
+| herdr-infobox | [#96](https://github.com/civitaspo/herdr-infobox/pull/96) | [Passed](https://github.com/civitaspo/herdr-infobox/actions/runs/40264079521) | [Passed](https://github.com/civitaspo/herdr-infobox/actions/runs/40264767028) |
+| herdr-linear-agent | [#202](https://github.com/civitaspo/herdr-linear-agent/pull/202) | [Passed](https://github.com/civitaspo/herdr-linear-agent/actions/runs/40265563023) | [Passed](https://github.com/civitaspo/herdr-linear-agent/actions/runs/40265941959) |
+| hook-relay-client-rs | [#69](https://github.com/civitaspo/hook-relay-client-rs/pull/69) | [Passed](https://github.com/civitaspo/hook-relay-client-rs/actions/runs/40266457618) | [Passed](https://github.com/civitaspo/hook-relay-client-rs/actions/runs/40266737545) |
+| terraform-provider-sigma | [#216](https://github.com/civitaspo/terraform-provider-sigma/pull/216) | [Passed](https://github.com/civitaspo/terraform-provider-sigma/actions/runs/40267128143) | [Passed](https://github.com/civitaspo/terraform-provider-sigma/actions/runs/40267765411) |
+
+The audit of all ten default branches found no active or operator-facing references to the retired service. Historical migration records and changelogs remain.
+
+The final default-branch audit verified `automergeType: pr-comment`, `automergeComment: /merge`, `platformAutomerge: false`, and the existing major-update exclusion in every Renovate configuration. Only the server and actions repositories needed new Renovate configuration. The ordinary clients retain their existing update eligibility. The production trust list permits only Renovate Bot ID `29139614` as a Bot merger. Server and actions repositories retain their fixed prohibition on Bot mergers.
+
+The eight ordinary clients document the Renovate sensitive-path exemption. Renovate can omit the owner command for its own eligible PR, but exact-head approval, policy, CI, and ownership of every commit remain required. No trusted server workflow pin, release format, credential, or App permission changed in this rollout.
+
+One contribution-metadata requirement was missed. Herdr-linear-agent PR #202 had the required `Co-Authored-By: Codex <noreply@openai.com>` trailer in its signed feature commit, but its PR body omitted the trailer. The Server squash commit `8bd523a8c20f33459d12b066de30f5e68e9563b6` therefore lacks it. The operator was informed. The merged history was preserved as required by that repository. Subsequent PR bodies include the exact trailer, and the Hook and Terraform squash commits were verified to preserve it.
+
+## 2026-10-26: native Renovate merge verified
+
+Renovate [PR #203](https://github.com/civitaspo/herdr-linear-agent/pull/203) updates only ghalint from 1.5.6 to 1.5.7 and its seven platform checksums. Semantic TOML comparison confirmed that every other tool was unchanged. The PR author and its sole signed, verified commit belong to Renovate user ID `29139614`. The verified final head is `4611f54f2480c0e49d457b8b2a1b8bfd7beaa68e`.
+
+The owner requested a native Renovate rebase with its standard label. After all CI passed, the owner added and immediately removed that label to queue another Renovate evaluation without retaining a rebase request. The head did not change during that evaluation. Renovate itself then posted the native [`/merge` comment](https://github.com/civitaspo/herdr-linear-agent/pull/203#issuecomment-6408674236), with `CONTRIBUTOR` association. No human `/approve` or `/merge` command was posted on this PR. This verifies the native Bot request path; it does not claim unattended scheduling of the verification run.
+
+The [original full PR CI](https://github.com/civitaspo/herdr-linear-agent/actions/runs/40270784255) passed Linux and macOS Rust checks, autofix and title validation. Approver review `5647110238` approved the current head. GitHub preserved and rebound that existing review during the base-only rebase; a new review submission is not claimed. The current-head policy also passed. The Renovate-triggered [Client run](https://github.com/civitaspo/herdr-linear-agent/actions/runs/40272440038) and [Server merge run](https://github.com/civitaspo/csm-ci-server/actions/runs/40272451704) were correlated by PR number and exact native comment ID `6408674236` in their accepted request logs. Server intake, merge and cleanup all passed.
+
+The Server App merged the PR under the existing protections as `83f572033e7b87ee86f7453cb8f708e7b19978df`. Full [main CI](https://github.com/civitaspo/herdr-linear-agent/actions/runs/40272521009) passed lint, Linux and macOS Rust checks and the aggregate status check. No protection, approval requirement, App permission or credential was relaxed for this verification.
+
+After this merge, audits of all ten actual default branches again confirmed no active retired-service references, the final merge caller, and the expected Renovate comment configuration. Live API inspection verified all four managed rulesets per repository, exact producer-bound required checks, approval without bypass, Server-only controlled merges and tags, squash-only merging and immutable releases. Existing unrelated rulesets were preserved.
+
+## 2026-10-26: retired repositories archived
+
+After the native Renovate merge, full main CI, and final audits passed, the owner-authorized retirement archived exactly [civitaspo/securefix-server](https://github.com/civitaspo/securefix-server), [civitaspo/testing-securefix-server](https://github.com/civitaspo/testing-securefix-server), [civitaspo/securefix-action](https://github.com/civitaspo/securefix-action). The API confirmed repository identities `1250079425`, `1410312556` and `1410523962` and `archived: true` at 05:13 UTC. The preflight found no queued, running, waiting, pending or requested workflow runs in any of the three. The old production server's repository-settings and runtime-distribution workflows remained disabled.
+
+Immediately before archival, all ten clients' protection invariants were checked again against live API values, including managed ruleset IDs and preserved unrelated rulesets. No current repository, external csm-actions repository, credential, private key, PAT or GitHub App permission was changed by archival. The owner retains responsibility for removing obsolete credentials and App installations.
