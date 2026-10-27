@@ -70,6 +70,12 @@ repositories:
       - approve
       - merge
       - policy-check
+    sensitive_paths:
+      paths:
+        - "**"
+      exempt: []
+    merge:
+      allow_bot_requests: false
   - name: civitaspo/csm-ci-actions
     ops:
       - approve
@@ -79,6 +85,12 @@ repositories:
       - release
     release:
       build_type: js-action
+    sensitive_paths:
+      paths:
+        - "**"
+      exempt: []
+    merge:
+      allow_bot_requests: false
   - name: civitaspo/dotfiles
     ops:
       - approve
