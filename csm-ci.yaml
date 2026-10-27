@@ -76,6 +76,10 @@ repositories:
       exempt: []
     merge:
       allow_bot_requests: false
+    workflow_adoption:
+      .github/workflows/csm-ci-approve.yml: e55eb8589445a934d76f48f66f905939befa2d94345ffbd4f3912f2256d506d1
+      .github/workflows/csm-ci-policy-check.yml: 937e69f55bd4fa66c6498a758d303f733602f9d7025deb9088c94ff45a42f97b
+      .github/workflows/csm-ci-merge.yml: 4c753336d3372e01a411f287b36769873dcdd761ba143b99f5893a0eb6e83bd6
   - name: civitaspo/csm-ci-actions
     ops:
       - approve
@@ -91,11 +95,21 @@ repositories:
       exempt: []
     merge:
       allow_bot_requests: false
+    workflow_adoption:
+      .github/workflows/csm-ci-approve.yml: e55eb8589445a934d76f48f66f905939befa2d94345ffbd4f3912f2256d506d1
+      .github/workflows/csm-ci-policy-check.yml: 937e69f55bd4fa66c6498a758d303f733602f9d7025deb9088c94ff45a42f97b
+      .github/workflows/csm-ci-merge.yml: 4c753336d3372e01a411f287b36769873dcdd761ba143b99f5893a0eb6e83bd6
+      .github/workflows/csm-ci-release.yml: ef1654ecc7aeb85f9d5fbd4f84c7407492748e50bd98a499d6954c6079478c76
+      .github/workflows/csm-ci-release-pr.yml: f195fe6c02503e4cbe1faeb6ab7a04ebef9820a7fc3492124250a205c461787d
   - name: civitaspo/dotfiles
     ops:
       - approve
       - merge
       - policy-check
+    workflow_adoption:
+      .github/workflows/csm-ci-approve.yml: e55eb8589445a934d76f48f66f905939befa2d94345ffbd4f3912f2256d506d1
+      .github/workflows/csm-ci-policy-check.yml: 937e69f55bd4fa66c6498a758d303f733602f9d7025deb9088c94ff45a42f97b
+      .github/workflows/csm-ci-merge.yml: 4c753336d3372e01a411f287b36769873dcdd761ba143b99f5893a0eb6e83bd6
   - name: civitaspo/dbt-authorized-models
     ops:
       - approve
@@ -105,6 +119,12 @@ repositories:
       - release
     release:
       build_type: none
+    workflow_adoption:
+      .github/workflows/csm-ci-approve.yml: e55eb8589445a934d76f48f66f905939befa2d94345ffbd4f3912f2256d506d1
+      .github/workflows/csm-ci-policy-check.yml: 937e69f55bd4fa66c6498a758d303f733602f9d7025deb9088c94ff45a42f97b
+      .github/workflows/csm-ci-merge.yml: 4c753336d3372e01a411f287b36769873dcdd761ba143b99f5893a0eb6e83bd6
+      .github/workflows/csm-ci-release.yml: b2a9545a39e41a2a71639c7f560fe6cd9d1858759d5d703131f4cafbd8ef6c65
+      .github/workflows/csm-ci-release-pr.yml: 757d396ea490d754e9df975fabd9e4cbcd8d19bf58f01b3fca3a22fcac557e97
   - name: civitaspo/dbt-snowflake-iceberg-sync
     ops:
       - approve
@@ -114,6 +134,12 @@ repositories:
       - release
     release:
       build_type: none
+    workflow_adoption:
+      .github/workflows/csm-ci-approve.yml: e55eb8589445a934d76f48f66f905939befa2d94345ffbd4f3912f2256d506d1
+      .github/workflows/csm-ci-policy-check.yml: 937e69f55bd4fa66c6498a758d303f733602f9d7025deb9088c94ff45a42f97b
+      .github/workflows/csm-ci-merge.yml: 4c753336d3372e01a411f287b36769873dcdd761ba143b99f5893a0eb6e83bd6
+      .github/workflows/csm-ci-release.yml: b2a9545a39e41a2a71639c7f560fe6cd9d1858759d5d703131f4cafbd8ef6c65
+      .github/workflows/csm-ci-release-pr.yml: 757d396ea490d754e9df975fabd9e4cbcd8d19bf58f01b3fca3a22fcac557e97
   - name: civitaspo/dbt-snowflake-rap-enforcement
     ops:
       - approve
@@ -123,6 +149,12 @@ repositories:
       - release
     release:
       build_type: none
+    workflow_adoption:
+      .github/workflows/csm-ci-approve.yml: e55eb8589445a934d76f48f66f905939befa2d94345ffbd4f3912f2256d506d1
+      .github/workflows/csm-ci-policy-check.yml: 937e69f55bd4fa66c6498a758d303f733602f9d7025deb9088c94ff45a42f97b
+      .github/workflows/csm-ci-merge.yml: 4c753336d3372e01a411f287b36769873dcdd761ba143b99f5893a0eb6e83bd6
+      .github/workflows/csm-ci-release.yml: b2a9545a39e41a2a71639c7f560fe6cd9d1858759d5d703131f4cafbd8ef6c65
+      .github/workflows/csm-ci-release-pr.yml: 757d396ea490d754e9df975fabd9e4cbcd8d19bf58f01b3fca3a22fcac557e97
   - name: civitaspo/herdr-infobox
     ops:
       - approve
@@ -132,6 +164,12 @@ repositories:
       - release
     release:
       build_type: none
+    workflow_adoption:
+      .github/workflows/csm-ci-approve.yml: e55eb8589445a934d76f48f66f905939befa2d94345ffbd4f3912f2256d506d1
+      .github/workflows/csm-ci-policy-check.yml: 937e69f55bd4fa66c6498a758d303f733602f9d7025deb9088c94ff45a42f97b
+      .github/workflows/csm-ci-merge.yml: 4c753336d3372e01a411f287b36769873dcdd761ba143b99f5893a0eb6e83bd6
+      .github/workflows/csm-ci-release.yml: b2a9545a39e41a2a71639c7f560fe6cd9d1858759d5d703131f4cafbd8ef6c65
+      .github/workflows/csm-ci-release-pr.yml: 757d396ea490d754e9df975fabd9e4cbcd8d19bf58f01b3fca3a22fcac557e97
   - name: civitaspo/herdr-linear-agent
     ops:
       - approve
@@ -147,6 +185,14 @@ repositories:
         - x86_64-apple-darwin
         - x86_64-unknown-linux-musl
         - aarch64-unknown-linux-musl
+    workflow_adoption:
+      .github/workflows/csm-ci-approve.yml: f80370ce62b132b95cdc45e960e84a092ff41314571189283e39d1adccd85128
+      .github/workflows/csm-ci-policy-check.yml: 1ca3b1dc920ca3ceca54f693bd7fe59c6e4b8023db4e08ea2451fcdb420f06c0
+      .github/workflows/csm-ci-merge.yml: 4c753336d3372e01a411f287b36769873dcdd761ba143b99f5893a0eb6e83bd6
+      .github/workflows/csm-ci-release.yml: 962f65e0bf3d40c3b13a54f0364cd698118d797e2a3509994b3970fdeb569f32
+      .github/workflows/csm-ci-release-pr.yml: 85e03df062334e55ce11aceeaddd295a9950902adf29ebc0f8600e8977adfa57
+    release_prepare:
+      update_root_version: false
   - name: civitaspo/hook-relay-client-rs
     ops:
       - approve
@@ -162,6 +208,14 @@ repositories:
         - x86_64-apple-darwin
         - x86_64-unknown-linux-musl
         - aarch64-unknown-linux-musl
+    workflow_adoption:
+      .github/workflows/csm-ci-approve.yml: f80370ce62b132b95cdc45e960e84a092ff41314571189283e39d1adccd85128
+      .github/workflows/csm-ci-policy-check.yml: 1ca3b1dc920ca3ceca54f693bd7fe59c6e4b8023db4e08ea2451fcdb420f06c0
+      .github/workflows/csm-ci-merge.yml: 4c753336d3372e01a411f287b36769873dcdd761ba143b99f5893a0eb6e83bd6
+      .github/workflows/csm-ci-release.yml: 962f65e0bf3d40c3b13a54f0364cd698118d797e2a3509994b3970fdeb569f32
+      .github/workflows/csm-ci-release-pr.yml: 85e03df062334e55ce11aceeaddd295a9950902adf29ebc0f8600e8977adfa57
+    release_prepare:
+      update_root_version: false
   - name: civitaspo/terraform-provider-sigma
     ops:
       - approve
@@ -172,6 +226,14 @@ repositories:
     release:
       build_type: terraform-provider
       provider_name: sigma
+    workflow_adoption:
+      .github/workflows/csm-ci-approve.yml: f80370ce62b132b95cdc45e960e84a092ff41314571189283e39d1adccd85128
+      .github/workflows/csm-ci-policy-check.yml: 1ca3b1dc920ca3ceca54f693bd7fe59c6e4b8023db4e08ea2451fcdb420f06c0
+      .github/workflows/csm-ci-merge.yml: 4c753336d3372e01a411f287b36769873dcdd761ba143b99f5893a0eb6e83bd6
+      .github/workflows/csm-ci-release.yml: d4b60a06829c1897f9730bb733e8253944a3cf140d8a9b6a221fab767562f0a3
+      .github/workflows/csm-ci-release-pr.yml: 66b33ba5a89efd4e2ad8126d584139abcd30f80592ee5d1800c6ea7966942723
+    release_prepare:
+      update_root_version: false
 repo_settings:
   settings:
     delete_branch_on_merge: true
@@ -181,9 +243,6 @@ repo_settings:
     allow_rebase_merge: false
   additional_managed_files:
     .github/PULL_REQUEST_TEMPLATE.md: managed-files/PULL_REQUEST_TEMPLATE.md
-    .github/workflows/csm-ci-approve.yml: managed-files/csm-ci-approve.yml
-    .github/workflows/csm-ci-policy-check.yml: managed-files/csm-ci-policy-check.yml
-    .github/workflows/csm-ci-merge.yml: managed-files/csm-ci-merge.yml
 securefix:
   allow_workflow_changes: true
   routes:

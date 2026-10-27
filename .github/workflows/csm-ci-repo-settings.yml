@@ -19,7 +19,7 @@ jobs:
     permissions:
       contents: read
     # Server environment secrets reach the reusable workflow through explicit names.
-    uses: civitaspo/csm-ci-actions/.github/workflows/server-repo-settings.yml@8220823b5b49f7be4af55e7c4fbdbb0d881f3e9d
+    uses: civitaspo/csm-ci-actions/.github/workflows/server-repo-settings.yml@6c95a5e9b35e8eeba8e0c6f78055acc38b698bb4
     with:
       repository: ${{ inputs.repository || '' }}
       mode: ${{ inputs.mode || 'reconcile' }}
