@@ -188,6 +188,11 @@ repo_settings:
     allow_squash_merge: true
     allow_merge_commit: false
     allow_rebase_merge: false
+    has_wiki: false
+    has_projects: false
+  sponsorships:
+    enabled: true
+    github: [civitaspo]
   additional_managed_files:
     .github/PULL_REQUEST_TEMPLATE.md: managed-files/PULL_REQUEST_TEMPLATE.md
 securefix:
