@@ -9,7 +9,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   validate:
-    uses: civitaspo/csm-ci-actions/.github/workflows/server-check.yml@a8645b8e9461dd9d3f0a03e09fe39e54d295cb0f
+    uses: civitaspo/csm-ci-actions/.github/workflows/server-check.yml@24b3a757f5cb9483bb6d8d1e464466e1a3f7f47f
     permissions:
       contents: read
   status-check:
