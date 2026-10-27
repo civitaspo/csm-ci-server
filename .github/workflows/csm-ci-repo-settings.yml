@@ -8,21 +8,20 @@ on:
         description: Optional configured owner/repo target.
         type: string
         required: false
-      mode:
-        description: Distribute managed files before activating repository protection.
-        type: choice
-        options: [managed-files-only, reconcile]
-        default: managed-files-only
+      targets:
+        description: Comma-separated settings, rulesets, releases, managed-files, or all.
+        type: string
+        default: all
 permissions: {}
 jobs:
   settings:
     permissions:
       contents: read
     # Server environment secrets reach the reusable workflow through explicit names.
-    uses: civitaspo/csm-ci-actions/.github/workflows/server-repo-settings.yml@8da6f0a3b2dd600ab61a1adae59152001f381f1c
+    uses: civitaspo/csm-ci-actions/.github/workflows/server-repo-settings.yml@a8645b8e9461dd9d3f0a03e09fe39e54d295cb0f
     with:
       repository: ${{ inputs.repository || '' }}
-      mode: ${{ inputs.mode || 'reconcile' }}
+      targets: ${{ inputs.targets || 'all' }}
     secrets:
       CSM_CI_SERVER_APP_PRIVATE_KEY: ${{ secrets.CSM_CI_SERVER_APP_PRIVATE_KEY }}
       CSM_CI_APPROVER_APP_PRIVATE_KEY: ${{ secrets.CSM_CI_APPROVER_APP_PRIVATE_KEY }}
