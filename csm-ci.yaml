@@ -167,66 +167,6 @@ repo_settings:
     allow_squash_merge: true
     allow_merge_commit: false
     allow_rebase_merge: false
-  managed_files:
-    .github/PULL_REQUEST_TEMPLATE.md: |
-      ## Why
-
-      ## What changed
-
-      ## Scope
-
-      ## Tradeoffs
-
-      ## Blast Radius
-
-      ## Verification
-    .github/workflows/csm-ci-approve.yml: |
-      name: csm-ci-approve
-      # Each event submits a separate request; callers do not cancel earlier requests.
-      # These workflows never check out PR code.
-      # jactionlint ignore=concurrency-limits,dangerous-triggers
-      on:
-        pull_request_target:
-          types: [opened, synchronize, reopened, ready_for_review]
-        issue_comment:
-          types: [created]
-      permissions: {}
-      jobs:
-        request:
-          # The called workflow mints the narrowly scoped Client App token.
-          # jactionlint ignore=secrets-inherit
-          uses: civitaspo/csm-ci-actions/.github/workflows/client-approve.yml@2b751e0f2e16bb8e7bdd57994a8d3e13cdb1879e
-          secrets: inherit
-    .github/workflows/csm-ci-policy-check.yml: |
-      name: csm-ci-policy-check
-      # Each event submits a separate request; callers do not cancel earlier requests.
-      # These workflows never check out PR code.
-      # jactionlint ignore=concurrency-limits,dangerous-triggers
-      on:
-        pull_request_target:
-          types: [opened, synchronize, reopened, ready_for_review, edited]
-      permissions: {}
-      jobs:
-        request:
-          # The called workflow mints the narrowly scoped Client App token.
-          # jactionlint ignore=secrets-inherit
-          uses: civitaspo/csm-ci-actions/.github/workflows/client-policy-check.yml@2b751e0f2e16bb8e7bdd57994a8d3e13cdb1879e
-          secrets: inherit
-    .github/workflows/csm-ci-merge.yml: |
-      name: csm-ci-merge
-      # Each event submits a separate request; callers do not cancel earlier requests.
-      # These workflows never check out PR code.
-      # jactionlint ignore=concurrency-limits,dangerous-triggers
-      on:
-        issue_comment:
-          types: [created]
-      permissions: {}
-      jobs:
-        request:
-          # The called workflow mints the narrowly scoped Client App token.
-          # jactionlint ignore=secrets-inherit
-          uses: civitaspo/csm-ci-actions/.github/workflows/client-merge.yml@5e26d290f13f8db3d067aabc4d14030f95c40b8a
-          secrets: inherit
 securefix:
   allow_workflow_changes: true
   routes:
