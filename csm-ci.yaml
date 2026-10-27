@@ -167,6 +167,11 @@ repo_settings:
     allow_squash_merge: true
     allow_merge_commit: false
     allow_rebase_merge: false
+  additional_managed_files:
+    .github/PULL_REQUEST_TEMPLATE.md: managed-files/PULL_REQUEST_TEMPLATE.md
+    .github/workflows/csm-ci-approve.yml: managed-files/csm-ci-approve.yml
+    .github/workflows/csm-ci-policy-check.yml: managed-files/csm-ci-policy-check.yml
+    .github/workflows/csm-ci-merge.yml: managed-files/csm-ci-merge.yml
 securefix:
   allow_workflow_changes: true
   routes:
