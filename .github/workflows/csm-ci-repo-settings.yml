@@ -20,7 +20,7 @@ jobs:
       contents: read
     # Server environment secrets reach the reusable workflow only through inherit.
     # jactionlint ignore=secrets-inherit
-    uses: civitaspo/csm-ci-actions/.github/workflows/server-repo-settings.yml@82917b4c3a28e5ff4023991ed355b40081d650fb
+    uses: civitaspo/csm-ci-actions/.github/workflows/server-repo-settings.yml@0ebe098647fa14457a95749c68f8d7963d231a2e
     with:
       repository: ${{ inputs.repository || '' }}
       mode: ${{ inputs.mode || 'reconcile' }}
