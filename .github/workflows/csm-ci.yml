@@ -9,7 +9,7 @@ jobs:
   server:
     # Environment credentials are consumed inside the trusted reusable workflow.
     # jactionlint ignore=secrets-inherit
-    uses: civitaspo/csm-ci-actions/.github/workflows/server.yml@cb80bbca315b446e92d8a1743d7cef19558199b4
+    uses: civitaspo/csm-ci-actions/.github/workflows/server.yml@0ebe098647fa14457a95749c68f8d7963d231a2e
     secrets: inherit
     permissions:
       contents: read
