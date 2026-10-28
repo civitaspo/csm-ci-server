@@ -1,4 +1,6 @@
 name: csm-ci
+# The run title is the request label (csm-ci-<op>-<rand>) and its description (<repository>/<numbers>); run-name is set before intake runs.
+run-name: ${{ github.event.label.name }} ${{ github.event.label.description }}
 # Label requests must not cancel each other.
 # jactionlint ignore=concurrency-limits
 on:
