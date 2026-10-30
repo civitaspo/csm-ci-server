@@ -74,7 +74,6 @@ repositories:
         - "**"
       exempt: []
     merge:
-      use_platform_automerge: false
       allow_bot_requests: false
   - name: civitaspo/csm-ci-actions
     ops:
@@ -90,15 +89,12 @@ repositories:
         - "**"
       exempt: []
     merge:
-      use_platform_automerge: false
       allow_bot_requests: false
   - name: civitaspo/dotfiles
     ops:
       - approve
       - merge
       - policy-check
-    merge:
-      use_platform_automerge: false
   - name: civitaspo/dbt-authorized-models
     ops:
       - approve
@@ -108,8 +104,6 @@ repositories:
       - release
     release:
       build_type: none
-    merge:
-      use_platform_automerge: false
   - name: civitaspo/dbt-snowflake-iceberg-sync
     ops:
       - approve
@@ -119,8 +113,6 @@ repositories:
       - release
     release:
       build_type: none
-    merge:
-      use_platform_automerge: false
   - name: civitaspo/dbt-snowflake-rap-enforcement
     ops:
       - approve
@@ -130,8 +122,6 @@ repositories:
       - release
     release:
       build_type: none
-    merge:
-      use_platform_automerge: false
   - name: civitaspo/herdr-infobox
     ops:
       - approve
@@ -141,8 +131,6 @@ repositories:
       - release
     release:
       build_type: none
-    merge:
-      use_platform_automerge: false
   - name: civitaspo/herdr-linear-agent
     ops:
       - approve
@@ -163,8 +151,6 @@ repositories:
         - Cargo.toml
         - Cargo.lock
         - herdr-plugin.toml
-    merge:
-      use_platform_automerge: false
   - name: civitaspo/hook-relay-client-rs
     ops:
       - approve
@@ -184,8 +170,6 @@ repositories:
       version_files:
         - Cargo.toml
         - Cargo.lock
-    merge:
-      use_platform_automerge: false
   - name: civitaspo/terraform-provider-sigma
     ops:
       - approve
@@ -196,8 +180,6 @@ repositories:
     release:
       build_type: terraform-provider
       provider_name: sigma
-    merge:
-      use_platform_automerge: false
 repo_settings:
   settings:
     delete_branch_on_merge: true
