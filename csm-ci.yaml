@@ -122,15 +122,6 @@ repositories:
       - release
     release:
       build_type: none
-  - name: civitaspo/herdr-infobox
-    ops:
-      - approve
-      - merge
-      - policy-check
-      - securefix
-      - release
-    release:
-      build_type: none
   - name: civitaspo/herdr-linear-agent
     ops:
       - approve
