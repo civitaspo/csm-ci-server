@@ -90,6 +90,11 @@ repositories:
       exempt: []
     merge:
       allow_bot_requests: false
+  - name: civitaspo/rex-agent-relay
+    ops:
+      - approve
+      - merge
+      - policy-check
   - name: civitaspo/dotfiles
     ops:
       - approve
