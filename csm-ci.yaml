@@ -90,6 +90,15 @@ repositories:
       exempt: []
     merge:
       allow_bot_requests: false
+  - name: civitaspo/rex-projects
+    ops:
+      - approve
+      - merge
+      - policy-check
+      - securefix
+      - release
+    release:
+      build_type: none
   - name: civitaspo/rex-agent-relay
     ops:
       - approve
