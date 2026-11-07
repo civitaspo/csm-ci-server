@@ -98,7 +98,17 @@ repositories:
       - securefix
       - release
     release:
-      build_type: none
+      build_type: cargo-raw
+      binary: rex-projects
+      targets:
+        - aarch64-apple-darwin
+        - x86_64-apple-darwin
+        - x86_64-unknown-linux-musl
+        - aarch64-unknown-linux-musl
+    release_prepare:
+      version_files:
+        - Cargo.toml
+        - Cargo.lock
   - name: civitaspo/rex-agent-relay
     ops:
       - approve
