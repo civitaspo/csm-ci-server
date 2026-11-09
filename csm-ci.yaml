@@ -97,6 +97,8 @@ repositories:
       - policy-check
       - securefix
       - release
+    integration_branches:
+      - prototype/first-ticket
     release:
       build_type: cargo-raw
       binary: rex-projects
