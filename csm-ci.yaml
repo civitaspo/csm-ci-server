@@ -125,6 +125,15 @@ repositories:
       - approve
       - merge
       - policy-check
+  - name: civitaspo/dbt-snowflake-parquet-direct
+    ops:
+      - approve
+      - merge
+      - policy-check
+      - securefix
+      - release
+    release:
+      build_type: none
   - name: civitaspo/dbt-authorized-models
     ops:
       - approve
