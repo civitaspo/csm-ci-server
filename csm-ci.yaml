@@ -211,6 +211,7 @@ repositories:
       build_type: terraform-provider
       provider_name: sigma
 repo_settings:
+  auto_merge_managed_files: true
   settings:
     delete_branch_on_merge: true
     allow_auto_merge: false
