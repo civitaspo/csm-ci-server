@@ -34,6 +34,8 @@ merge:
 policies:
   - type: signed-commits
   - type: trusted-committers
+  - type: pull-request-title
+    types: [feat, fix, docs, refactor, test, ci, build, chore, perf, revert]
   - type: sensitive-paths
     paths:
       - .github/workflows/**
