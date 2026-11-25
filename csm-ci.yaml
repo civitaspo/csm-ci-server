@@ -222,6 +222,7 @@ repo_settings:
     allow_rebase_merge: false
     has_wiki: false
     has_projects: false
+    dependabot_security_updates: false
   sponsorships:
     enabled: true
     github: [civitaspo]
