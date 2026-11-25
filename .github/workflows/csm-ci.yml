@@ -10,7 +10,7 @@ permissions: {}
 jobs:
   server:
     # Environment credentials are consumed inside the trusted reusable workflow.
-    uses: civitaspo/csm-ci-actions/.github/workflows/server.yml@e0791d2e097fccb8e2fa58bb35ec305e336cc3c5 # v0.10.0
+    uses: civitaspo/csm-ci-actions/.github/workflows/server.yml@52b726db3c90155c9bd7adc9c8766fa342994b35 # v0.11.0
     secrets:
       CSM_CI_SERVER_APP_PRIVATE_KEY: ${{ secrets.CSM_CI_SERVER_APP_PRIVATE_KEY }}
       CSM_CI_APPROVER_APP_PRIVATE_KEY: ${{ secrets.CSM_CI_APPROVER_APP_PRIVATE_KEY }}
